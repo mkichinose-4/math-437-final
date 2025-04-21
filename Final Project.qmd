@@ -1,0 +1,18 @@
+---
+title: "Final Project"
+editor: visual
+---
+
+## Final Project
+
+### Part I
+
+```{r}
+#| label: Part 1
+# I am texting with a code chunk
+```
+
+### Part II
+
+### Part III
+

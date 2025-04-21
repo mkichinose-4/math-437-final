@@ -1,0 +1,25 @@
+---
+title: "Megan Ichinose"
+subtitle: "Data Scientist | Student"
+image: image.JPG
+about: 
+  template: jolla
+  links: 
+    - icon: github
+      text: Github
+      href: https://github.com/mkichinose-4/math-437-final
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/megan-ichinose-14ba96322/
+      
+website:
+  title: "Final Project"
+  open-graph: true
+  navbar:
+    right:
+      - text: Home
+        href: index.qmd
+      - text: Project
+        href: Final Project.qmd
+---
+

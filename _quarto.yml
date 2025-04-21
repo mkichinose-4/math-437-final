@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "Math 437 Website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - Final Project.qmd
+
+format:
+  html:
+    backgroundcolor: '#eeffee'
+    fontcolor: 'darkgreen'
+    linkcolor: 'black'
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
