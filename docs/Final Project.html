@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Final Project – Math 437 Website</title>
+<title>Analyzing Key Factors of Calorie Burn Efficiency in a Workout – Math 437 Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,12 +127,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./Final Project.html" aria-current="page"> 
-<span class="menu-text">Final Project</span></a>
+<span class="menu-text">Analyzing Key Factors of Calorie Burn Efficiency in a Workout</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -150,12 +146,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#final-project" id="toc-final-project" class="nav-link active" data-scroll-target="#final-project">Final Project</a>
+  <li><a href="#motivation-and-context" id="toc-motivation-and-context" class="nav-link active" data-scroll-target="#motivation-and-context">Motivation and Context</a></li>
+  <li><a href="#main-objective" id="toc-main-objective" class="nav-link" data-scroll-target="#main-objective">Main Objective</a></li>
+  <li><a href="#packages-used-in-this-analysis" id="toc-packages-used-in-this-analysis" class="nav-link" data-scroll-target="#packages-used-in-this-analysis">Packages Used In This Analysis</a></li>
+  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description">Data Description</a>
   <ul class="collapse">
-  <li><a href="#part-i" id="toc-part-i" class="nav-link" data-scroll-target="#part-i">Part I</a></li>
-  <li><a href="#part-ii" id="toc-part-ii" class="nav-link" data-scroll-target="#part-ii">Part II</a></li>
-  <li><a href="#part-iii" id="toc-part-iii" class="nav-link" data-scroll-target="#part-iii">Part III</a></li>
+  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations">Data Limitations</a></li>
   </ul></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  <li><a href="#exploritory-data-analysis" id="toc-exploritory-data-analysis" class="nav-link" data-scroll-target="#exploritory-data-analysis">Exploritory Data Analysis</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
+  <li><a href="#insights" id="toc-insights" class="nav-link" data-scroll-target="#insights">Insights</a>
+  <ul class="collapse">
+  <li><a href="#limitations-and-future-work" id="toc-limitations-and-future-work" class="nav-link" data-scroll-target="#limitations-and-future-work">Limitations and Future Work</a></li>
+  </ul></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
   </ul>
 </nav>
     </div>
@@ -164,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Final Project</h1>
+<h1 class="title">Analyzing Key Factors of Calorie Burn Efficiency in a Workout</h1>
 </div>
 
 
@@ -181,22 +186,177 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="final-project" class="level2">
-<h2 class="anchored" data-anchor-id="final-project">Final Project</h2>
-<section id="part-i" class="level3">
-<h3 class="anchored" data-anchor-id="part-i">Part I</h3>
+<section id="motivation-and-context" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-and-context">Motivation and Context</h2>
+<p>Often times, we do our research on calories involving diet, exercise, and lifestyle overall because calories are the energy we need to function throughout the day. We burn calories in order to balance our calorie intake, improve metabolic efficiency, and reduce stress. However, with busy daily routines, finding time for this can prove to be difficult.</p>
+<p>In this investigation, I will analyze the demographics and living habits of users in order to investigate any correlations with calorie burn in a workout.</p>
+<p>I was pretty active in middle school and high school, but once I entered college and started working, finding time for physical activity grew more difficult. I tried many different types of workout routines and eventually developed one tailored to me I enjoy and fits in my busy school and work schedule. I noticed that when I worked out pretty consistently, I got better sleep and my mood improved, which sparked my interest in the topic.</p>
+</section>
+<section id="main-objective" class="level2">
+<h2 class="anchored" data-anchor-id="main-objective">Main Objective</h2>
+<p>The data set is designed to help analyze and predict workout efficiency. However because only one workout session for each user was recorded, I decided to analyze what variables are more effective in burning calories during a workout.</p>
+</section>
+<section id="packages-used-in-this-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="packages-used-in-this-analysis">Packages Used In This Analysis</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I am texting with a code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsample)  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Lahman) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(probably) </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knockoff) </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(selectiveInference)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>[Explain why you used each]</p>
+</section>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
+<p>Our data set contains fitness data on user’s</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Demographic and Body</strong></p>
+<ul>
+<li><p>Age</p></li>
+<li><p>Gender</p></li>
+<li><p>Height (centimeters)</p></li>
+<li><p>Weight (kilograms)</p></li>
+<li><p>Body Fat (percentage)</p></li>
+<li><p>VO₂ Max</p></li>
+<li><p>Resting Heart Rate</p></li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Lifestyle and Wellness</strong></p>
+<ul>
+<li><p>Sleep Hours</p></li>
+<li><p>Water Intake (liters)</p></li>
+<li><p>Daily Calories Intake</p></li>
+<li><p>Mood Before Workout</p></li>
+<li><p>Mood After Workout</p></li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Workout</strong></p>
+<ul>
+<li><p>Workout Type</p></li>
+<li><p>Workout Intensity</p></li>
+<li><p>Workout Duration (minutes)</p></li>
+<li><p>Distance (kilometers)</p></li>
+<li><p>Steps Taken</p></li>
+<li><p>Heart Rate (bpm)</p></li>
+<li><p>Calories Burned</p></li>
+</ul>
+</div>
+</div>
+<p>This data set is from Adil Shamim from Kaggle and synthetically generated to simulate real-world fitness tracking data. The data mimics information collected from different fitness apps.</p>
+<section id="data-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="data-limitations">Data Limitations</h3>
+<p>As mentioned earlier, this data is synthetically generated and only represents similar real user data and some relationships between variables may not be fully precise. Another limitation in this data set is the potential of multicollinearity in the data, which can affect the model’s performance.</p>
+<p>[ADD MORE, consider bias in collection methods, mismatches between the variables in the dataset and the real-world characteristics they are intended to describe, and real-world differences that may make your model inappropriate for data collected from other times/places/etc.]</p>
+</section>
+</section>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<p>Before I chose what I was going to analyze, I manipulated the variables in a way I thought was fit for this study and ended up not needing to do this, but felt it was important to include as a part of my data wrangling.</p>
+<div class="columns">
+<div class="column">
+<p><strong>BMI</strong></p>
+<p>I converted the height into meters and took the weight and divided by the height (meters) squared to get the user’s BMI. These values were then sorted into:</p>
+<ul>
+<li><p>BMI &lt; 18.5, “Underweight”</p></li>
+<li><p>18.5 &lt; BMI &lt; 24.9, “Normal Weight”</p></li>
+<li><p>24.9 &lt; BMI, “Overweight”</p></li>
+</ul>
+</div><div class="column">
+<p><strong>Mood Change</strong></p>
+<p>I converted the categorical variable Mood Before Workout and Mood After Workout into a numerical variable:</p>
+<ul>
+<li><p>Happy or Energized= 2</p></li>
+<li><p>Neutral = 1</p></li>
+<li><p>Stressed/Tired or Fatigued= 0</p></li>
+</ul>
+<p>and then took the difference between the values. If the value was positive, mood improved; If the value was negative, mood worsened.</p>
+</div>
 </div>
 </section>
-<section id="part-ii" class="level3">
-<h3 class="anchored" data-anchor-id="part-ii">Part II</h3>
+<section id="exploritory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploritory-data-analysis">Exploritory Data Analysis</h2>
+<p>When examining how each variable relates to Calories Burned, most exhibit similar patterns. Below is a comparison highlighting how both a categorical and a numerical variable are associated with Calories Burned.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-Project_files/figure-html/EDA Categorical-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here we see the frequency of calories burned for each type of workout. Almost all of the graphs look similar in frequency, which demonstrates the limitation of this data set.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-Project_files/figure-html/EDA Numerical-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Even more concerning, we observe that some workouts burn a significant number of calories in a short amount of time, while others yield only a small calorie burn despite extended durations.</p>
 </section>
-<section id="part-iii" class="level3">
-<h3 class="anchored" data-anchor-id="part-iii">Part III</h3>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<p>calculate one or more measures of model performance (rmse), and why I chose each measure of model performance, what they represent and how they were calculated.</p>
+<p>I chose to use obtain a LASSO model with the data set because I wanted to see which variables were most significant in burning calories. As a result, I successfully identified that the higher a user’s age, steps taken, sleep hours, daily calories intake, resting heart rate, mood after workout, mood change, gender, and workout type contributed to burning more calories. Also, the lower a user’s height, weight, workout duration and heart rate contributed to burning more calories. Because <code>Calories Burned</code> is a numerical variable, I chose to select the model using a RMSE. RMSE represents how far off I am in calories.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = `Calories Burned` ~ Age + `Height (cm)` + `Weight (kg)` + 
+    `Workout Duration (mins)` + `Heart Rate (bpm)` + `Steps Taken` + 
+    `Sleep Hours` + `Daily Calories Intake` + `Resting Heart Rate (bpm)`, 
+    data = fitness_test)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-486.18 -219.19    4.24  215.49  479.83 
+
+Coefficients:
+                             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                 5.757e+02  8.458e+01   6.806 1.25e-11 ***
+Age                        -2.004e-01  4.275e-01  -0.469   0.6392    
+`Height (cm)`              -1.607e-01  3.628e-01  -0.443   0.6579    
+`Weight (kg)`              -2.028e-01  2.558e-01  -0.793   0.4280    
+`Workout Duration (mins)`  -3.319e-01  1.627e-01  -2.040   0.0415 *  
+`Heart Rate (bpm)`         -6.594e-02  1.806e-01  -0.365   0.7151    
+`Steps Taken`              -2.324e-05  9.433e-04  -0.025   0.9803    
+`Sleep Hours`               4.026e+00  3.038e+00   1.325   0.1853    
+`Daily Calories Intake`     1.140e-02  7.208e-03   1.581   0.1140    
+`Resting Heart Rate (bpm)`  4.542e-03  4.510e-01   0.010   0.9920    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 259.4 on 2490 degrees of freedom
+Multiple R-squared:  0.003734,  Adjusted R-squared:  0.0001327 
+F-statistic: 1.037 on 9 and 2490 DF,  p-value: 0.4076</code></pre>
+</div>
+</div>
+<p>Even though the LASSO selected significant variables, our model suggests that they are not super strong.</p>
+</section>
+<section id="insights" class="level2">
+<h2 class="anchored" data-anchor-id="insights">Insights</h2>
+<p>This section should include one or more graphs, figures, or tables that summarize your primary findings. You should also have a paragraph describing that finding in the text and summarizing how you arrived at it.</p>
+<section id="limitations-and-future-work" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-and-future-work">Limitations and Future Work</h3>
+<p>Again, some limitations are the use of mimiced data and maybe with my current knowledge of my findings, I will be able to seek better results with real user data.</p>
+</section>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<p><a href="https://www.kaggle.com/datasets/adilshamim8/workout-and-fitness-tracker-data" class="uri">https://www.kaggle.com/datasets/adilshamim8/workout-and-fitness-tracker-data</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

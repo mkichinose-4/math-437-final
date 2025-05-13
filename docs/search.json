@@ -23,16 +23,72 @@
   {
     "objectID": "Final Project.html",
     "href": "Final Project.html",
-    "title": "Final Project",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
     "section": "",
-    "text": "# I am texting with a code chunk"
+    "text": "Often times, we do our research on calories involving diet, exercise, and lifestyle overall because calories are the energy we need to function throughout the day. We burn calories in order to balance our calorie intake, improve metabolic efficiency, and reduce stress. However, with busy daily routines, finding time for this can prove to be difficult.\nIn this investigation, I will analyze the demographics and living habits of users in order to investigate any correlations with calorie burn in a workout.\nI was pretty active in middle school and high school, but once I entered college and started working, finding time for physical activity grew more difficult. I tried many different types of workout routines and eventually developed one tailored to me I enjoy and fits in my busy school and work schedule. I noticed that when I worked out pretty consistently, I got better sleep and my mood improved, which sparked my interest in the topic."
   },
   {
-    "objectID": "Final Project.html#final-project",
-    "href": "Final Project.html#final-project",
-    "title": "Final Project",
+    "objectID": "Final Project.html#motivation-and-context",
+    "href": "Final Project.html#motivation-and-context",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
     "section": "",
-    "text": "# I am texting with a code chunk"
+    "text": "Often times, we do our research on calories involving diet, exercise, and lifestyle overall because calories are the energy we need to function throughout the day. We burn calories in order to balance our calorie intake, improve metabolic efficiency, and reduce stress. However, with busy daily routines, finding time for this can prove to be difficult.\nIn this investigation, I will analyze the demographics and living habits of users in order to investigate any correlations with calorie burn in a workout.\nI was pretty active in middle school and high school, but once I entered college and started working, finding time for physical activity grew more difficult. I tried many different types of workout routines and eventually developed one tailored to me I enjoy and fits in my busy school and work schedule. I noticed that when I worked out pretty consistently, I got better sleep and my mood improved, which sparked my interest in the topic."
+  },
+  {
+    "objectID": "Final Project.html#main-objective",
+    "href": "Final Project.html#main-objective",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Main Objective",
+    "text": "Main Objective\nThe data set is designed to help analyze and predict workout efficiency. However because only one workout session for each user was recorded, I decided to analyze what variables are more effective in burning calories during a workout."
+  },
+  {
+    "objectID": "Final Project.html#packages-used-in-this-analysis",
+    "href": "Final Project.html#packages-used-in-this-analysis",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Packages Used In This Analysis",
+    "text": "Packages Used In This Analysis\n\nlibrary(here) \nlibrary(readr) \nlibrary(dplyr) \nlibrary(ggplot2) \nlibrary(rsample)  \nlibrary(Lahman) \nlibrary(tidyverse) \nlibrary(tidymodels) \nlibrary(probably) \nlibrary(knockoff) \nlibrary(selectiveInference)\n\n[Explain why you used each]"
+  },
+  {
+    "objectID": "Final Project.html#data-description",
+    "href": "Final Project.html#data-description",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Data Description",
+    "text": "Data Description\nOur data set contains fitness data on user’s\n\n\nDemographic and Body\n\nAge\nGender\nHeight (centimeters)\nWeight (kilograms)\nBody Fat (percentage)\nVO₂ Max\nResting Heart Rate\n\n\nLifestyle and Wellness\n\nSleep Hours\nWater Intake (liters)\nDaily Calories Intake\nMood Before Workout\nMood After Workout\n\n\nWorkout\n\nWorkout Type\nWorkout Intensity\nWorkout Duration (minutes)\nDistance (kilometers)\nSteps Taken\nHeart Rate (bpm)\nCalories Burned\n\n\n\nThis data set is from Adil Shamim from Kaggle and synthetically generated to simulate real-world fitness tracking data. The data mimics information collected from different fitness apps.\n\nData Limitations\nAs mentioned earlier, this data is synthetically generated and only represents similar real user data and some relationships between variables may not be fully precise. Another limitation in this data set is the potential of multicollinearity in the data, which can affect the model’s performance.\n[ADD MORE, consider bias in collection methods, mismatches between the variables in the dataset and the real-world characteristics they are intended to describe, and real-world differences that may make your model inappropriate for data collected from other times/places/etc.]"
+  },
+  {
+    "objectID": "Final Project.html#data-wrangling",
+    "href": "Final Project.html#data-wrangling",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nBefore I chose what I was going to analyze, I manipulated the variables in a way I thought was fit for this study and ended up not needing to do this, but felt it was important to include as a part of my data wrangling.\n\n\nBMI\nI converted the height into meters and took the weight and divided by the height (meters) squared to get the user’s BMI. These values were then sorted into:\n\nBMI &lt; 18.5, “Underweight”\n18.5 &lt; BMI &lt; 24.9, “Normal Weight”\n24.9 &lt; BMI, “Overweight”\n\n\nMood Change\nI converted the categorical variable Mood Before Workout and Mood After Workout into a numerical variable:\n\nHappy or Energized= 2\nNeutral = 1\nStressed/Tired or Fatigued= 0\n\nand then took the difference between the values. If the value was positive, mood improved; If the value was negative, mood worsened."
+  },
+  {
+    "objectID": "Final Project.html#exploritory-data-analysis",
+    "href": "Final Project.html#exploritory-data-analysis",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Exploritory Data Analysis",
+    "text": "Exploritory Data Analysis\nWhen examining how each variable relates to Calories Burned, most exhibit similar patterns. Below is a comparison highlighting how both a categorical and a numerical variable are associated with Calories Burned.\n\n\n\n\n\n\n\n\n\nHere we see the frequency of calories burned for each type of workout. Almost all of the graphs look similar in frequency, which demonstrates the limitation of this data set.\n\n\n\n\n\n\n\n\n\nEven more concerning, we observe that some workouts burn a significant number of calories in a short amount of time, while others yield only a small calorie burn despite extended durations."
+  },
+  {
+    "objectID": "Final Project.html#modeling",
+    "href": "Final Project.html#modeling",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Modeling",
+    "text": "Modeling\ncalculate one or more measures of model performance (rmse), and why I chose each measure of model performance, what they represent and how they were calculated.\nI chose to use obtain a LASSO model with the data set because I wanted to see which variables were most significant in burning calories. As a result, I successfully identified that the higher a user’s age, steps taken, sleep hours, daily calories intake, resting heart rate, mood after workout, mood change, gender, and workout type contributed to burning more calories. Also, the lower a user’s height, weight, workout duration and heart rate contributed to burning more calories. Because Calories Burned is a numerical variable, I chose to select the model using a RMSE. RMSE represents how far off I am in calories.\n\n\n\nCall:\nlm(formula = `Calories Burned` ~ Age + `Height (cm)` + `Weight (kg)` + \n    `Workout Duration (mins)` + `Heart Rate (bpm)` + `Steps Taken` + \n    `Sleep Hours` + `Daily Calories Intake` + `Resting Heart Rate (bpm)`, \n    data = fitness_test)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-486.18 -219.19    4.24  215.49  479.83 \n\nCoefficients:\n                             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                 5.757e+02  8.458e+01   6.806 1.25e-11 ***\nAge                        -2.004e-01  4.275e-01  -0.469   0.6392    \n`Height (cm)`              -1.607e-01  3.628e-01  -0.443   0.6579    \n`Weight (kg)`              -2.028e-01  2.558e-01  -0.793   0.4280    \n`Workout Duration (mins)`  -3.319e-01  1.627e-01  -2.040   0.0415 *  \n`Heart Rate (bpm)`         -6.594e-02  1.806e-01  -0.365   0.7151    \n`Steps Taken`              -2.324e-05  9.433e-04  -0.025   0.9803    \n`Sleep Hours`               4.026e+00  3.038e+00   1.325   0.1853    \n`Daily Calories Intake`     1.140e-02  7.208e-03   1.581   0.1140    \n`Resting Heart Rate (bpm)`  4.542e-03  4.510e-01   0.010   0.9920    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 259.4 on 2490 degrees of freedom\nMultiple R-squared:  0.003734,  Adjusted R-squared:  0.0001327 \nF-statistic: 1.037 on 9 and 2490 DF,  p-value: 0.4076\n\n\nEven though the LASSO selected significant variables, our model suggests that they are not super strong."
+  },
+  {
+    "objectID": "Final Project.html#insights",
+    "href": "Final Project.html#insights",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Insights",
+    "text": "Insights\nThis section should include one or more graphs, figures, or tables that summarize your primary findings. You should also have a paragraph describing that finding in the text and summarizing how you arrived at it.\n\nLimitations and Future Work\nAgain, some limitations are the use of mimiced data and maybe with my current knowledge of my findings, I will be able to seek better results with real user data."
+  },
+  {
+    "objectID": "Final Project.html#citations",
+    "href": "Final Project.html#citations",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Citations",
+    "text": "Citations\nhttps://www.kaggle.com/datasets/adilshamim8/workout-and-fitness-tracker-data"
   },
   {
     "objectID": "about.html",
