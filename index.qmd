@@ -1,19 +1,19 @@
 ---
 title: "Megan Ichinose"
 subtitle: "Data Scientist | Student"
-image: image.JPG
+image: image2.png
 about: 
   template: jolla
   links: 
-    - icon: github
-      text: Github
-      href: https://github.com/mkichinose-4/math-437-final
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/megan-ichinose-14ba96322/
+    - icon: github
+      text: Github
+      href: https://github.com/mkichinose-4/math-437-final
       
 website:
-  title: "Final Project"
+  title: "Analyzing Key Factors of Calorie Burn Efficiency in a Workout"
   open-graph: true
   navbar:
     right:

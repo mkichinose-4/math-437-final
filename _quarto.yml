@@ -5,17 +5,18 @@ project:
 website:
   title: "Math 437 Website"
   navbar:
+    background: 'mediumpurple'
+    fontcolor: 'lavender'
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - Final Project.qmd
 
 format:
   html:
-    backgroundcolor: '#eeffee'
-    fontcolor: 'darkgreen'
-    linkcolor: 'black'
+    backgroundcolor: 'lavender'
+    fontcolor: '#330066'
+    linkcolor: 'mediumpurple'
     theme: cosmo
     css: styles.css
     toc: true

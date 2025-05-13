@@ -1,18 +1,308 @@
 ---
-title: "Final Project"
+title: "Analyzing Key Factors of Calorie Burn Efficiency in a Workout"
 editor: visual
 ---
 
-## Final Project
+## Motivation and Context
 
-### Part I
+Often times, we do our research on calories involving diet, exercise, and lifestyle overall because calories are the energy we need to function throughout the day. We burn calories in order to balance our calorie intake, improve metabolic efficiency, and reduce stress. However, with busy daily routines, finding time for this can prove to be difficult.
+
+In this investigation, I will analyze the demographics and living habits of users in order to investigate any correlations with calorie burn in a workout.
+
+I was pretty active in middle school and high school, but once I entered college and started working, finding time for physical activity grew more difficult. I tried many different types of workout routines and eventually developed one tailored to me I enjoy and fits in my busy school and work schedule. I noticed that when I worked out pretty consistently, I got better sleep and my mood improved, which sparked my interest in the topic.
+
+## Main Objective
+
+The data set is designed to help analyze and predict workout efficiency. However because only one workout session for each user was recorded, I decided to analyze what variables are more effective in burning calories during a workout.
+
+## Packages Used In This Analysis
 
 ```{r}
-#| label: Part 1
-# I am texting with a code chunk
+#| label: load packages 
+#| message: false 
+#| warning: false  
+
+library(here) 
+library(readr) 
+library(dplyr) 
+library(ggplot2) 
+library(rsample)  
+library(Lahman) 
+library(tidyverse) 
+library(tidymodels) 
+library(probably) 
+library(knockoff) 
+library(selectiveInference)
 ```
 
-### Part II
+\[Explain why you used each\]
 
-### Part III
+## Data Description
 
+Our data set contains fitness data on user's
+
+:::::: columns
+::: {.column width="33%"}
+**Demographic and Body**
+
+-   Age
+
+-   Gender
+
+-   Height (centimeters)
+
+-   Weight (kilograms)
+
+-   Body Fat (percentage)
+
+-   VO₂ Max
+
+-   Resting Heart Rate
+:::
+
+::: {.column width="33%"}
+**Lifestyle and Wellness**
+
+-   Sleep Hours
+
+-   Water Intake (liters)
+
+-   Daily Calories Intake
+
+-   Mood Before Workout
+
+-   Mood After Workout
+:::
+
+::: {.column width="33%"}
+**Workout**
+
+-   Workout Type
+
+-   Workout Intensity
+
+-   Workout Duration (minutes)
+
+-   Distance (kilometers)
+
+-   Steps Taken
+
+-   Heart Rate (bpm)
+
+-   Calories Burned
+:::
+::::::
+
+This data set is from Adil Shamim from Kaggle and synthetically generated to simulate real-world fitness tracking data. The data mimics information collected from different fitness apps.
+
+```{r}
+#| label: Loading Data 
+#| echo: false
+#| results: 'hide'
+fitness <- read_csv("workout_fitness_tracker_data.csv", show_col_types = FALSE)
+```
+
+### Data Limitations
+
+As mentioned earlier, this data is synthetically generated and only represents similar real user data and some relationships between variables may not be fully precise. Another limitation in this data set is the potential of multicollinearity in the data, which can affect the model's performance.
+
+\[ADD MORE, consider bias in collection methods, mismatches between the variables in the dataset and the real-world characteristics they are intended to describe, and real-world differences that may make your model inappropriate for data collected from other times/places/etc.\]
+
+## Data Wrangling
+
+```{r}
+#| label: Data Wrangling
+#| echo: false
+#| results: 'hide' 
+# Checking for NAs 
+sum(is.na(fitness))  
+
+# Calculate the correlation matrix for continuous variables and see what might get zeroed out in the lasso model (continuous being variables that can take on any number within any range, measured, not counted)
+
+```
+
+Before I chose what I was going to analyze, I manipulated the variables in a way I thought was fit for this study and ended up not needing to do this, but felt it was important to include as a part of my data wrangling.
+
+::::: columns
+::: column
+**BMI**
+
+I converted the height into meters and took the weight and divided by the height (meters) squared to get the user's BMI. These values were then sorted into:
+
+-   BMI \< 18.5, "Underweight"
+
+-   18.5 \< BMI \< 24.9, "Normal Weight"
+
+-   24.9 \< BMI, "Overweight"
+:::
+
+::: column
+**Mood Change**
+
+I converted the categorical variable Mood Before Workout and Mood After Workout into a numerical variable:
+
+-   Happy or Energized= 2
+
+-   Neutral = 1
+
+-   Stressed/Tired or Fatigued= 0
+
+and then took the difference between the values. If the value was positive, mood improved; If the value was negative, mood worsened.
+:::
+:::::
+
+```{r, eval=FALSE, include=FALSE}
+#| label: Changing and Mutating Variables 
+# Changing variables 
+fitness$`Mood Before Workout` <- ifelse(fitness$`Mood Before Workout` == "Happy", 2,
+                                        ifelse(fitness$`Mood Before Workout` == "Neutral", 1,
+                                               ifelse(fitness$`Mood Before Workout` == "Stressed", 0,
+                                                      ifelse(fitness$`Mood Before Workout` == "Tired", 0, NA))))
+
+fitness$`Mood After Workout` <- ifelse(fitness$`Mood After Workout` == "Energized", 2,                      
+                                       ifelse(fitness$`Mood After Workout` == "Neutral", 1,                     
+                                              ifelse(fitness$`Mood After Workout` == "Fatigued", 0, NA)))  
+
+# Mutate 
+fitness <- fitness |>   
+  mutate(
+    mood_change = `Mood After Workout` - `Mood Before Workout`,     
+    bmi = `Weight (kg)`/(`Height (cm)`/100)^2,     
+    bmi = if_else(bmi < 18.5, "Underweight",
+                  ifelse(bmi < 24.9, "Normal Weight",       
+                         ifelse(bmi < 29.9, "Overweight", "Obesity")))
+    )
+```
+
+```{r}
+#| label: Training and Testing Sets 
+#| echo: false
+#| results: 'hide' 
+fitness_split <- initial_split(fitness, prop = 0.75) 
+fitness_train <- training(fitness_split) 
+fitness_test <- testing(fitness_split)
+```
+
+## Exploritory Data Analysis
+
+When examining how each variable relates to Calories Burned, most exhibit similar patterns. Below is a comparison highlighting how both a categorical and a numerical variable are associated with Calories Burned.
+
+```{r}
+#| label: EDA Categorical
+#| echo: false
+# Looking at categorical variables and getting a general idea of the behavior with calories burned
+ggplot(data = fitness, 
+       mapping = aes(x = `Calories Burned`)) +
+  geom_histogram(fill = "mediumpurple1", 
+                 color = "black",
+                 center = 500,
+                 binwidth = 200) +
+  labs(x = "Calories Burned",
+       y = "Workout Type") +
+  facet_wrap(vars(`Workout Type`))
+```
+
+Here we see the frequency of calories burned for each type of workout. Almost all of the graphs look similar in frequency, which demonstrates the limitation of this data set.
+
+```{r}
+#| label: EDA Numerical
+#| echo: false
+# Looking at numerical variables and getting a general idea of the behavior with calories burned
+ggplot(data = fitness, 
+       mapping = aes(x = `Workout Duration (mins)`, 
+                     y = `Calories Burned`)) +
+  geom_point(color = "mediumpurple1", size = 2) +
+  labs(x = "Workout Duration (Minutes)",
+       y = "Calories Burned")
+```
+
+Even more concerning, we observe that some workouts burn a significant number of calories in a short amount of time, while others yield only a small calorie burn despite extended durations.
+
+## Modeling
+
+calculate one or more measures of model performance (rmse), and why I chose each measure of model performance, what they represent and how they were calculated.
+
+```{r}
+#| label: Finding Significant Variables through LASSO 
+#| echo: false
+#| warning: false  
+#| results: 'hide'
+lasso_model <- linear_reg(mode = "regression", engine = "glmnet",
+                          penalty = tune(),                           
+                          mixture = 1)
+
+lasso_recipe <- recipe(`Calories Burned` ~ Age + Gender + `Height (cm)` + `Weight (kg)` + `Workout Type` + 
+                       `Workout Duration (mins)` + `Heart Rate (bpm)`+ `Steps Taken` + `Distance (km)` + 
+                       `Workout Intensity` + `Sleep Hours` + `Water Intake (liters)` + `Daily Calories Intake` + 
+                       `Resting Heart Rate (bpm)` + `VO2 Max` + `Body Fat (%)` + `Mood Before Workout` + 
+                       `Mood After Workout`,   data = fitness_train) |>   
+  step_normalize(all_numeric_predictors()) |> # don't scale the response   
+  step_dummy(all_nominal_predictors())  
+
+lasso_wflow <- workflow() |>   
+  add_model(lasso_model) |>   
+  add_recipe(lasso_recipe)  
+
+fitness_cv <- vfold_cv(fitness_train, v = 10)  
+
+lasso_tune <- tune_grid(lasso_model,
+                        lasso_recipe,                          
+                        resamples = fitness_cv,                          
+                        grid = grid_regular(penalty(range = c(-5, 0)), levels = 50))  
+
+lasso_best <- lasso_tune |>   
+  select_by_one_std_err(     
+    metric = "rmse",     
+    desc(penalty) ) 
+
+lasso_wflow_final <- lasso_wflow |>   
+  finalize_workflow(parameters = lasso_best) 
+
+lasso_pred_check <- lasso_wflow_final |>   
+ fit_resamples(     
+   resamples = fitness_cv,     
+   control = control_resamples(save_pred = TRUE) ) |>   
+ collect_predictions()  
+
+lasso_fit <- lasso_wflow_final |>   
+  fit(data = fitness_train)  
+
+lasso_coef <- lasso_fit |>   
+  broom::tidy(penalty = lasso_best$penalty) 
+```
+
+I chose to use obtain a LASSO model with the data set because I wanted to see which variables were most significant in burning calories. As a result, I successfully identified that the higher a user's age, steps taken, sleep hours, daily calories intake, resting heart rate, mood after workout, mood change, gender, and workout type contributed to burning more calories. Also, the lower a user's height, weight, workout duration and heart rate contributed to burning more calories. Because `Calories Burned` is a numerical variable, I chose to select the model using a RMSE. RMSE represents how far off I am in calories.
+
+```{r}
+#| label: Model Selection 
+#| echo: false
+selected_model <- linear_reg(mode = "regression", engine = "lm") 
+
+selected_recipe <- recipe(`Calories Burned` ~ Age + Gender + `Height (cm)` + `Weight (kg)` + `Workout Type` +                              `Workout Duration (mins)` + `Heart Rate (bpm)`+ `Steps Taken` + `Workout Intensity` + 
+                          `Sleep Hours` + `Daily Calories Intake` + `Resting Heart Rate (bpm)` + 
+                          `Mood After Workout`, data = fitness_train)  
+
+selected_wflow <- workflow() |>   
+  add_model(selected_model) |>   
+  add_recipe(selected_recipe)  
+
+selected_lm <- lm(`Calories Burned` ~ Age + `Height (cm)` + `Weight (kg)` + `Workout Duration (mins)` + 
+                  `Heart Rate (bpm)`+ `Steps Taken` + `Sleep Hours` + `Daily Calories Intake` + 
+                  `Resting Heart Rate (bpm)`, data = fitness_test)  
+
+summary(selected_lm)
+```
+
+Even though the LASSO selected significant variables, our model suggests that they are not super strong.
+
+## Insights
+
+This section should include one or more graphs, figures, or tables that summarize your primary findings. You should also have a paragraph describing that finding in the text and summarizing how you arrived at it.
+
+### Limitations and Future Work
+
+Again, some limitations are the use of mimiced data and maybe with my current knowledge of my findings, I will be able to seek better results with real user data.
+
+## Citations
+
+<https://www.kaggle.com/datasets/adilshamim8/workout-and-fitness-tracker-data>
