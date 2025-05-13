@@ -319,27 +319,27 @@ lm(formula = `Calories Burned` ~ Age + `Height (cm)` + `Weight (kg)` +
     data = fitness_test)
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--476.3 -220.6   -5.4  218.4  469.7 
+    Min      1Q  Median      3Q     Max 
+-474.49 -225.95   -4.95  217.60  477.09 
 
 Coefficients:
                              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                 6.144e+02  8.525e+01   7.207 7.55e-13 ***
-Age                         1.999e-01  4.270e-01   0.468   0.6397    
-`Height (cm)`              -2.149e-01  3.606e-01  -0.596   0.5512    
-`Weight (kg)`              -4.958e-01  2.549e-01  -1.945   0.0519 .  
-`Workout Duration (mins)`   1.550e-01  1.631e-01   0.950   0.3421    
-`Heart Rate (bpm)`          9.636e-02  1.801e-01   0.535   0.5927    
-`Steps Taken`              -9.554e-05  9.464e-04  -0.101   0.9196    
-`Sleep Hours`              -1.857e+00  3.024e+00  -0.614   0.5393    
-`Daily Calories Intake`     9.138e-03  7.198e-03   1.270   0.2044    
-`Resting Heart Rate (bpm)` -3.591e-01  4.533e-01  -0.792   0.4283    
+(Intercept)                 6.347e+02  8.584e+01   7.394 1.94e-13 ***
+Age                         2.396e-01  4.199e-01   0.571    0.568    
+`Height (cm)`              -5.389e-01  3.630e-01  -1.485    0.138    
+`Weight (kg)`              -2.811e-01  2.574e-01  -1.092    0.275    
+`Workout Duration (mins)`  -1.915e-01  1.623e-01  -1.180    0.238    
+`Heart Rate (bpm)`          2.071e-01  1.801e-01   1.150    0.250    
+`Steps Taken`               3.199e-05  9.481e-04   0.034    0.973    
+`Sleep Hours`              -1.137e+00  3.056e+00  -0.372    0.710    
+`Daily Calories Intake`    -1.837e-03  7.135e-03  -0.257    0.797    
+`Resting Heart Rate (bpm)`  3.118e-01  4.461e-01   0.699    0.485    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 259.3 on 2490 degrees of freedom
-Multiple R-squared:  0.003282,  Adjusted R-squared:  -0.0003205 
-F-statistic: 0.911 on 9 and 2490 DF,  p-value: 0.5144</code></pre>
+Residual standard error: 258.7 on 2490 degrees of freedom
+Multiple R-squared:  0.002849,  Adjusted R-squared:  -0.0007555 
+F-statistic: 0.7904 on 9 and 2490 DF,  p-value: 0.6253</code></pre>
 </div>
 </div>
 <p>Even though the LASSO selected significant variables, our model suggests that they are not super strong.</p>
@@ -452,7 +452,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/mkichinose-4\.github\.io\/math-437-final\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
