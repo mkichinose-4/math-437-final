@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "website/projects/index.html",
+    "href": "website/projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Predicting House Prices with Machine Learning\n\n\n\nPython\n\n\nMachine Learning\n\n\nData Cleaning\n\n\n\nThis project involves using machine learning algorithms to predict house prices based on various features such as location, size, and amenities. It includes data cleaning, feature engineering, and model selection.\n\n\n\nJan 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCustomer Segmentation Using Clustering Techniques\n\n\n\nR\n\n\nMachine Learning\n\n\nClustering\n\n\nStatistical Modelling\n\n\n\nThis project focuses on segmenting customers into different groups based on their purchasing behavior and demographics. It uses clustering algorithms like K-means and hierarchical clustering to identify distinct customer segments.\n\n\n\nApr 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Global CO2 Emissions\n\n\n\nR\n\n\nData Visualization\n\n\nEnvironmental Science\n\n\n\nThis project involves creating visualizations to show trends in global CO2 emissions over time. It includes data extraction from public databases, data cleaning, and using visualization libraries to create interactive charts and graphs.\n\n\n\nJul 1, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "website/blog/third-post/index.html",
+    "href": "website/blog/third-post/index.html",
+    "title": "Third Blog Post",
+    "section": "",
+    "text": "The source for any page in your website could also be a Jupyter Notebook. This one is third-post/index.ipynb.\nHere’s an example I borrowed from the Seaborn docs:\n\nimport seaborn as sns\n\nsns.set_theme(style=\"whitegrid\")\n\n# Load the diamonds dataset\ndiamonds = sns.load_dataset(\"diamonds\")\n\n# Plot the distribution of clarity ratings, conditional on carat\nsns.displot(\n    data=diamonds,\n    x=\"carat\", hue=\"cut\",\n    kind=\"kde\", height=4, aspect=1.5,\n    multiple=\"fill\", clip=(0, None),\n    palette=\"ch:rot=-.25,hue=1,light=.75\",   \n)"
+  },
+  {
+    "objectID": "website/blog/first-post/index.html",
+    "href": "website/blog/first-post/index.html",
+    "title": "First Post",
+    "section": "",
+    "text": "Sed risus ultricies tristique nulla aliquet. Neque volutpat ac tincidunt vitae semper quis lectus nulla.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu mi bibendum neque. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Velit sed ullamcorper morbi tincidunt ornare massa. Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Lobortis feugiat vivamus at augue eget arcu. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Mauris a diam maecenas sed enim ut sem viverra aliquet. Enim ut tellus elementum sagittis vitae et leo duis. Molestie at elementum eu facilisis sed odio morbi quis commodo. Sapien pellentesque habitant morbi tristique senectus. Quam vulputate dignissim suspendisse in est. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget.\nVelit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Viverra mauris in aliquam sem fringilla ut morbi tincidunt augue. Tortor at auctor urna nunc id. Sit amet consectetur adipiscing elit duis tristique sollicitudin. Aliquet nibh praesent tristique magna sit amet purus. Tristique senectus et netus et malesuada fames ac turpis. Hac habitasse platea dictumst quisque. Auctor neque vitae tempus quam pellentesque nec nam aliquam. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Iaculis at erat pellentesque adipiscing. Cras tincidunt lobortis feugiat vivamus. Nisi est sit amet facilisis magna etiam. Pharetra pharetra massa massa ultricies mi quis hendrerit. Vitae sapien pellentesque habitant morbi tristique senectus. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae."
+  },
+  {
+    "objectID": "Final Project.html",
+    "href": "Final Project.html",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "",
+    "text": "Often times, we do our research on calories involving diet, exercise, and lifestyle overall because calories are the energy we need to function throughout the day. We burn calories in order to balance our calorie intake, improve metabolic efficiency, and reduce stress. However, with busy daily routines, finding time for this can prove to be difficult.\nIn this investigation, I will analyze the demographics and living habits of users in order to investigate any correlations with calorie burn in a workout.\nI was pretty active in middle school and high school, but once I entered college and started working, finding time for physical activity grew more difficult. I tried many different types of workout routines and eventually developed one tailored to me I enjoy and fits in my busy school and work schedule. I noticed that when I worked out pretty consistently, I got better sleep and my mood improved, which sparked my interest in the topic."
+  },
+  {
+    "objectID": "Final Project.html#motivation-and-context",
+    "href": "Final Project.html#motivation-and-context",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "",
+    "text": "Often times, we do our research on calories involving diet, exercise, and lifestyle overall because calories are the energy we need to function throughout the day. We burn calories in order to balance our calorie intake, improve metabolic efficiency, and reduce stress. However, with busy daily routines, finding time for this can prove to be difficult.\nIn this investigation, I will analyze the demographics and living habits of users in order to investigate any correlations with calorie burn in a workout.\nI was pretty active in middle school and high school, but once I entered college and started working, finding time for physical activity grew more difficult. I tried many different types of workout routines and eventually developed one tailored to me I enjoy and fits in my busy school and work schedule. I noticed that when I worked out pretty consistently, I got better sleep and my mood improved, which sparked my interest in the topic."
+  },
+  {
+    "objectID": "Final Project.html#main-objective",
+    "href": "Final Project.html#main-objective",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Main Objective",
+    "text": "Main Objective\nThe data set is designed to help analyze and predict workout efficiency. However because only one workout session for each user was recorded, I decided to analyze what variables are more effective in burning calories during a workout."
+  },
+  {
+    "objectID": "Final Project.html#packages-used-in-this-analysis",
+    "href": "Final Project.html#packages-used-in-this-analysis",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Packages Used In This Analysis",
+    "text": "Packages Used In This Analysis\n\nlibrary(here) \nlibrary(readr) \nlibrary(dplyr) \nlibrary(ggplot2) \nlibrary(rsample)  \nlibrary(Lahman) \nlibrary(tidyverse) \nlibrary(tidymodels) \nlibrary(probably) \nlibrary(knockoff) \nlibrary(selectiveInference)\n\n[Explain why you used each]"
+  },
+  {
+    "objectID": "Final Project.html#data-description",
+    "href": "Final Project.html#data-description",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Data Description",
+    "text": "Data Description\nOur data set contains fitness data on user’s\n\n\nDemographic and Body\n\nAge\nGender\nHeight (centimeters)\nWeight (kilograms)\nBody Fat (percentage)\nVO₂ Max\nResting Heart Rate\n\n\nLifestyle and Wellness\n\nSleep Hours\nWater Intake (liters)\nDaily Calories Intake\nMood Before Workout\nMood After Workout\n\n\nWorkout\n\nWorkout Type\nWorkout Intensity\nWorkout Duration (minutes)\nDistance (kilometers)\nSteps Taken\nHeart Rate (bpm)\nCalories Burned\n\n\n\nThis data set is from Adil Shamim from Kaggle and synthetically generated to simulate real-world fitness tracking data. The data mimics information collected from different fitness apps.\n\nData Limitations\nAs mentioned earlier, this data is synthetically generated and only represents similar real user data and some relationships between variables may not be fully precise. Another limitation in this data set is the potential of multicollinearity in the data, which can affect the model’s performance.\n[ADD MORE, consider bias in collection methods, mismatches between the variables in the dataset and the real-world characteristics they are intended to describe, and real-world differences that may make your model inappropriate for data collected from other times/places/etc.]"
+  },
+  {
+    "objectID": "Final Project.html#data-wrangling",
+    "href": "Final Project.html#data-wrangling",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nBefore I chose what I was going to analyze, I manipulated the variables in a way I thought was fit for this study and ended up not needing to do this, but felt it was important to include as a part of my data wrangling.\n\n\nBMI\nI converted the height into meters and took the weight and divided by the height (meters) squared to get the user’s BMI. These values were then sorted into:\n\nBMI &lt; 18.5, “Underweight”\n18.5 &lt; BMI &lt; 24.9, “Normal Weight”\n24.9 &lt; BMI, “Overweight”\n\n\nMood Change\nI converted the categorical variable Mood Before Workout and Mood After Workout into a numerical variable:\n\nHappy or Energized= 2\nNeutral = 1\nStressed/Tired or Fatigued= 0\n\nand then took the difference between the values. If the value was positive, mood improved; If the value was negative, mood worsened."
+  },
+  {
+    "objectID": "Final Project.html#exploritory-data-analysis",
+    "href": "Final Project.html#exploritory-data-analysis",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Exploritory Data Analysis",
+    "text": "Exploritory Data Analysis\nWhen examining how each variable relates to Calories Burned, most exhibit similar patterns. Below is a comparison highlighting how both a categorical and a numerical variable are associated with Calories Burned.\n\n\n\n\n\n\n\n\n\nHere we see the frequency of calories burned for each type of workout. Almost all of the graphs look similar in frequency, which demonstrates the limitation of this data set.\n\n\n\n\n\n\n\n\n\nEven more concerning, we observe that some workouts burn a significant number of calories in a short amount of time, while others yield only a small calorie burn despite extended durations."
+  },
+  {
+    "objectID": "Final Project.html#modeling",
+    "href": "Final Project.html#modeling",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Modeling",
+    "text": "Modeling\ncalculate one or more measures of model performance (rmse), and why I chose each measure of model performance, what they represent and how they were calculated.\nI chose to use obtain a LASSO model with the data set because I wanted to see which variables were most significant in burning calories. As a result, I successfully identified that the higher a user’s age, steps taken, sleep hours, daily calories intake, resting heart rate, mood after workout, mood change, gender, and workout type contributed to burning more calories. Also, the lower a user’s height, weight, workout duration and heart rate contributed to burning more calories. Because Calories Burned is a numerical variable, I chose to select the model using a RMSE. RMSE represents how far off I am in calories.\n\n\n\nCall:\nlm(formula = `Calories Burned` ~ Age + `Height (cm)` + `Weight (kg)` + \n    `Workout Duration (mins)` + `Heart Rate (bpm)` + `Steps Taken` + \n    `Sleep Hours` + `Daily Calories Intake` + `Resting Heart Rate (bpm)`, \n    data = fitness_test)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-476.3 -220.6   -5.4  218.4  469.7 \n\nCoefficients:\n                             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                 6.144e+02  8.525e+01   7.207 7.55e-13 ***\nAge                         1.999e-01  4.270e-01   0.468   0.6397    \n`Height (cm)`              -2.149e-01  3.606e-01  -0.596   0.5512    \n`Weight (kg)`              -4.958e-01  2.549e-01  -1.945   0.0519 .  \n`Workout Duration (mins)`   1.550e-01  1.631e-01   0.950   0.3421    \n`Heart Rate (bpm)`          9.636e-02  1.801e-01   0.535   0.5927    \n`Steps Taken`              -9.554e-05  9.464e-04  -0.101   0.9196    \n`Sleep Hours`              -1.857e+00  3.024e+00  -0.614   0.5393    \n`Daily Calories Intake`     9.138e-03  7.198e-03   1.270   0.2044    \n`Resting Heart Rate (bpm)` -3.591e-01  4.533e-01  -0.792   0.4283    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 259.3 on 2490 degrees of freedom\nMultiple R-squared:  0.003282,  Adjusted R-squared:  -0.0003205 \nF-statistic: 0.911 on 9 and 2490 DF,  p-value: 0.5144\n\n\nEven though the LASSO selected significant variables, our model suggests that they are not super strong."
+  },
+  {
+    "objectID": "Final Project.html#insights",
+    "href": "Final Project.html#insights",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Insights",
+    "text": "Insights\nThis section should include one or more graphs, figures, or tables that summarize your primary findings. You should also have a paragraph describing that finding in the text and summarizing how you arrived at it.\n\nLimitations and Future Work\nAgain, some limitations are the use of mimiced data and maybe with my current knowledge of my findings, I will be able to seek better results with real user data."
+  },
+  {
+    "objectID": "Final Project.html#citations",
+    "href": "Final Project.html#citations",
+    "title": "Analyzing Key Factors of Calorie Burn Efficiency in a Workout",
+    "section": "Citations",
+    "text": "Citations\nhttps://www.kaggle.com/datasets/adilshamim8/workout-and-fitness-tracker-data"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "website/blog/second-post/index.html",
+    "href": "website/blog/second-post/index.html",
+    "title": "Second Post",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Amet cursus sit amet dictum sit amet. Eget duis at tellus at urna condimentum. Convallis aenean et tortor at risus viverra. Tincidunt ornare massa eget egestas purus viverra accumsan. Et malesuada fames ac turpis egestas. At imperdiet dui accumsan sit amet. Ut ornare lectus sit amet est placerat. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Mattis enim ut tellus elementum sagittis. Dui id ornare arcu odio ut. Natoque penatibus et magnis dis. Libero justo laoreet sit amet cursus sit. Sed faucibus turpis in eu. Tempus iaculis urna id volutpat lacus laoreet.\nPhasellus vestibulum lorem sed risus. Eget felis eget nunc lobortis mattis. Sit amet aliquam id diam maecenas ultricies. Egestas maecenas pharetra convallis posuere morbi. Etiam erat velit scelerisque in dictum non consectetur a erat. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Viverra accumsan in nisl nisi scelerisque. Et netus et malesuada fames ac. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Eget lorem dolor sed viverra ipsum nunc aliquet. Ultrices dui sapien eget mi proin sed libero enim sed. Ultricies mi eget mauris pharetra et ultrices neque. Ipsum suspendisse ultrices gravida dictum. A arcu cursus vitae congue mauris rhoncus aenean vel. Gravida arcu ac tortor dignissim convallis. Nulla posuere sollicitudin aliquam ultrices."
+  },
+  {
+    "objectID": "website/index.html",
+    "href": "website/index.html",
+    "title": "Alicia",
+    "section": "",
+    "text": "A little bit about me and my life."
+  },
+  {
+    "objectID": "website/index.html#education",
+    "href": "website/index.html#education",
+    "title": "Alicia",
+    "section": "Education",
+    "text": "Education\nUniversity of XYZ, City | Location | Sept 20XX - June 20XX"
+  },
+  {
+    "objectID": "website/index.html#experience",
+    "href": "website/index.html#experience",
+    "title": "Alicia",
+    "section": "Experience",
+    "text": "Experience\nWorkplace | Job title | April 20XX - present"
+  }
+]
