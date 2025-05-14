@@ -356,27 +356,27 @@ lm(formula = `Calories Burned` ~ Age + `Height (cm)` + `Weight (kg)` +
     data = fitness_test)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--471.04 -218.84    4.94  213.49  467.01 
+   Min     1Q Median     3Q    Max 
+-499.0 -222.6    7.5  218.2  471.2 
 
 Coefficients:
                              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                 5.792e+02  8.384e+01   6.908  6.2e-12 ***
-Age                        -1.348e-01  4.284e-01  -0.315   0.7530    
-`Height (cm)`              -7.498e-02  3.538e-01  -0.212   0.8322    
-`Weight (kg)`              -5.478e-01  2.559e-01  -2.141   0.0324 *  
-`Workout Duration (mins)`   1.390e-01  1.626e-01   0.855   0.3928    
-`Heart Rate (bpm)`          1.112e-02  1.800e-01   0.062   0.9507    
-`Steps Taken`              -1.457e-04  9.661e-04  -0.151   0.8801    
-`Sleep Hours`              -9.230e-02  3.021e+00  -0.031   0.9756    
-`Daily Calories Intake`     2.058e-03  7.233e-03   0.285   0.7760    
-`Resting Heart Rate (bpm)`  3.002e-01  4.460e-01   0.673   0.5010    
+(Intercept)                 4.253e+02  8.630e+01   4.929 8.82e-07 ***
+Age                         1.080e-01  4.325e-01   0.250  0.80278    
+`Height (cm)`               2.372e-01  3.592e-01   0.660  0.50904    
+`Weight (kg)`               5.437e-02  2.602e-01   0.209  0.83449    
+`Workout Duration (mins)`  -4.956e-02  1.638e-01  -0.302  0.76232    
+`Heart Rate (bpm)`          6.228e-02  1.814e-01   0.343  0.73141    
+`Steps Taken`               2.568e-03  9.617e-04   2.670  0.00764 ** 
+`Sleep Hours`              -1.843e+00  3.038e+00  -0.607  0.54405    
+`Daily Calories Intake`     1.110e-02  7.263e-03   1.528  0.12666    
+`Resting Heart Rate (bpm)`  5.049e-01  4.531e-01   1.114  0.26528    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 258.3 on 2490 degrees of freedom
-Multiple R-squared:  0.002327,  Adjusted R-squared:  -0.001279 
-F-statistic: 0.6453 on 9 and 2490 DF,  p-value: 0.7589</code></pre>
+Residual standard error: 260.5 on 2490 degrees of freedom
+Multiple R-squared:  0.004802,  Adjusted R-squared:  0.001205 
+F-statistic: 1.335 on 9 and 2490 DF,  p-value: 0.2132</code></pre>
 </div>
 </div>
 </section>
@@ -509,7 +509,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/mkichinose-4\.github\.io\/math-437-final\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
